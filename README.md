@@ -13,20 +13,20 @@ Projekt jest aplikacją internetową do rezerwacji hoteli, która umożliwia uż
 
 1. **Klonowanie repozytorium**
 
-   ```bash
    git clone https://github.com/KamilFKZ/Projekt.git
    cd projekt
-2.**Przygotowanie środowiska**:
-
-   dotnet restore
    
-3.**Utwórz bazę danych i zastosuj migracje**
-
+2.**Przygotowanie środowiska**:
+   
+   dotnet restore
+          
+ 3.**Utwórz bazę danych i zastosuj migracje**
+   
 dotnet ef database update
 
 4.**Uruchomienie aplikacji**
 
-dotnet ef database update
+dotnet run
 
 5.**Struktura projektu**
 
@@ -45,3 +45,7 @@ Wypełnij formularz rejestracyjny i wyślij
 -Logowanie- 
 Przejdź do /Account/Login
 Wypełnij formularz logowania i wyślij
+
+**Konto Administracyjne**
+login: admin@admin.pl
+hasło: Admin@123
