@@ -25,8 +25,8 @@ Wypełnij formularz logowania i wyślij
 ## Konto Administracyjne
 - login: admin@admin.pl
 - hasło: Admin@123
-Ważne:
- Aplikacja będzie dostępna pod adresem 'http://localhost:5043'
+**Ważne**
+- Aplikacja będzie dostępna pod adresem 'http://localhost:5043'
 ## Wymagania systemowe
 - .NET 6.0 SDK lub nowszy
 - Entity Framework Core
