@@ -23,8 +23,8 @@ Przejdź do /Account/Login
 Wypełnij formularz logowania i wyślij
 
 ## Konto Administracyjne
-login: admin@admin.pl
-hasło: Admin@123
+- login: admin@admin.pl
+- hasło: Admin@123
 Ważne:
  Aplikacja będzie dostępna pod adresem 'http://localhost:5043'
 ## Wymagania systemowe
