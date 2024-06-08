@@ -22,7 +22,7 @@ Wypełnij formularz rejestracyjny i wyślij
 Przejdź do /Account/Login
 Wypełnij formularz logowania i wyślij
 
-**Konto Administracyjne**
+## Konto Administracyjne
 login: admin@admin.pl
 hasło: Admin@123
 Ważne:
