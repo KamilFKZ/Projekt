@@ -12,22 +12,23 @@ Projekt jest aplikacją internetową do rezerwacji hoteli, która umożliwia uż
 ## Instalacja
 
 1. **Klonowanie repozytorium**
-
+   ```bash
    git clone https://github.com/KamilFKZ/Projekt.git
    cd projekt
    
 2.**Przygotowanie środowiska**:
-   
+   ```bash
    dotnet restore
           
  3.**Utwórz bazę danych i zastosuj migracje**
-   
-dotnet ef database update
+   ```bash
+   dotnet ef database update
 
 4.**Uruchomienie aplikacji**
+   ```bash
+   dotnet run
 
-dotnet run
-
+Aplikacja będzie dostępna pod adresem 'http://localhost:5043'
 5.**Struktura projektu**
 
 Controllers - Zawiera kontrolery obsługujące żądania HTTP
