@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Projekt.Models.Order>
+
+@{
+    ViewData["Title"] = "Moje zamówienia";
+}
+
+<h1>Moje zamówienia</h1>
+
+@if (!Model.Any())
+{
+        <p>Nie masz żadnych zamówień.</p>
+}
+else
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Hotel</th>
+                    <th>Data zameldowania</th>
+                    <th>Data wymeldowania</th>
+                    <th>Data zamówienia</th> 
+                    <th>Cena za noc</th>
+                    <th>Adres</th>
+                    <th>Status Zamówienia</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>@item.Hotel.Name</td>
+                            <td>@item.CheckInDate.ToShortDateString()</td>
+                            <td>@item.CheckOutDate.ToShortDateString()</td>
+                            <td>@item.OrderDate.ToShortDateString()</td> 
+                            <td>@item.Hotel.PricePerNight</td>
+                            <td>@item.Hotel.Address</td>
+                            <td>
+                        @if (item.CancellationRequested)
+                        {
+                                        <span class="text-warning">Anulowanie w trakcie</span>
+                        }
+                        else
+                        {
+                                        <span class="text-success">Zatwierdzone</span>
+                        }
+                            </td>
+                            <td>
+                        @if (!item.CancellationRequested)
+                        {
+                                        <form asp-action="RequestCancellation" method="post">
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <button type="submit" class="btn btn-danger">Poproś o anulowanie</button>
+                                        </form>
+                        }
+                            </td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}

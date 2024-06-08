@@ -1,0 +1,52 @@
+﻿@model Projekt.Models.Hotel
+
+@{
+    ViewData["Title"] = "Szczegóły Hotelu";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">@Model.Name</h1>
+        <div class="hotel-details">
+            <div class="hotel-image">
+                <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid" />
+            </div>
+            <div class="hotel-info card-text">
+                <p><strong>Miasto:</strong> @Model.City</p>
+                <p><strong>Adres:</strong> @Model.Address</p>
+                <p><strong>Cena za noc:</strong> @Model.PricePerNight</p>
+                <p>@Model.Description</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form asp-action="AddToCart" method="post">
+    <input type="hidden" asp-for="Id" name="hotelId" />
+    <div class="form-group">
+        <label for="checkInDate">Data zameldowania:</label>
+        <input type="date" class="form-control" id="checkInDate" name="checkInDate" required />
+    </div>
+    <div class="form-group">
+        <label for="checkOutDate">Data wymeldowania:</label>
+        <input type="date" class="form-control" id="checkOutDate" name="checkOutDate" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj do koszyka</button>
+</form>
+
+<style>
+    .hotel-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .hotel-image {
+        flex: 1;
+    }
+    .hotel-info {
+        flex: 2;
+    }
+    .hotel-info h1 {
+        margin-top: 0;
+    }
+</style>

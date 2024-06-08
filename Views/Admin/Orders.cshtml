@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Projekt.Models.Order>
+
+@{
+    ViewData["Title"] = "Zarządzanie zamówieniami";
+}
+
+<h1>Zarządzanie zamówieniami</h1>
+
+@if (!Model.Any())
+{
+        <p>Brak zamówień.</p>
+}
+else
+{
+        <div class="row">
+        @foreach (var item in Model)
+        {
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Hotel.Name</h5>
+                                <p class="card-text">
+                                    <strong>Osoba zamawiająca:</strong> @item.User?.Email<br>
+                                    <strong>Data zameldowania:</strong> @item.CheckInDate.ToShortDateString()<br>
+                                    <strong>Data wymeldowania:</strong> @item.CheckOutDate.ToShortDateString()<br>
+                                    <strong>Data zamówienia:</strong> @item.OrderDate.ToShortDateString()<br>
+                                    <strong>Cena za noc:</strong> @item.Hotel.PricePerNight zł<br>
+                                    <strong>Adres:</strong> @item.Hotel.Address<br>
+                                    <strong>Status anulowania:</strong>
+                            @if (item.CancellationRequested)
+                            {
+                                @if (item.IsCanceled)
+                                {
+                                                    <span class="text-danger">Anulowane</span>
+                                }
+                                else
+                                {
+                                                    <span class="text-warning">Anulowanie w trakcie</span>
+                                }
+                            }
+                            else
+                            {
+                                            <span class="text-success">Zatwierdzone</span>
+                            }
+                                </p>
+                        @if (item.CancellationRequested && !item.IsCanceled)
+                        {
+                                        <a asp-action="ApproveCancellation" asp-route-id="@item.Id" class="btn btn-success">Zatwierdź anulowanie</a>
+                                        <a asp-action="DenyCancellation" asp-route-id="@item.Id" class="btn btn-danger">Odrzuć anulowanie</a>
+                        }
+                            </div>
+                        </div>
+                    </div>
+        }
+        </div>
+}

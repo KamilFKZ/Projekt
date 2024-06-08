@@ -1,0 +1,57 @@
+﻿@using System.Linq;
+@using Microsoft.AspNetCore.Identity;
+@using Projekt.Models;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+    var hotels = Model as List<Hotel>;
+}
+
+<div class="container">
+    @if (SignInManager.IsSignedIn(User))
+    {
+                <div class="jumbotron"><div class="text-center">
+                        <h1>Witamy w systemie rezerwacji hoteli</h1>
+                        <p class="lead">Rezerwuj najlepsze hotele w najlepszych cenach!</p>
+                    </div>
+                
+               
+                <p>Hello, @UserManager.GetUserName(User)!</p>
+                <a href="@Url.Action("Index", "Hotels")" class="btn btn-primary">View Hotels</a>
+               
+            </div>
+
+        @if (hotels != null && hotels.Any())
+        {
+                    <div class="row">
+                @foreach (var hotel in hotels)
+                {
+                                <div class="col-md-4">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@hotel.Name</h5>
+                                            <p class="card-text">@hotel.City</p>
+                                            <p class="card-text">Cena za noc: @hotel.PricePerNight</p>
+                                            <a href="@Url.Action("Details", "Hotels", new { id = hotel.Id })" class="btn btn-primary">Zobacz szczegóły</a>
+                                        </div>
+                                    </div>
+                                </div>
+                }
+                    </div>
+        }
+        else
+        {
+                    <p>No hotels available at the moment.</p>
+        }
+    }
+    else
+    {
+            <div class="jumbotron">
+                <h1>Witamy w systemie rezerwacji hoteli</h1>
+                <p class="lead">Rezerwuj najlepsze hotele w najlepszych cenach!</p>
+                <p>Please <a href="@Url.Action("Login", "Account")">zaloguj się</a> or <a href="@Url.Action("Register", "Account")">Zarejestruj się</a> by zacząć rezerwować hotel.</p>
+            </div>
+    }
+</div>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Projekt.Models.Order>
+
+@{
+    ViewData["Title"] = "Moje Zamówienia";
+}
+
+<h1>Moje Zamówienia</h1>
+
+@if (!Model.Any())
+{
+        <p>Brak zamówień.</p>
+}
+else
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Hotel</th>
+                    <th>Data zameldowania</th>
+                    <th>Data wymeldowania</th>
+                    <th>Data zamówienia</th>
+                    <th>Cena za noc</th>
+                    <th>Adres</th>
+                    <th>Status anulowania</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>@item.Hotel.Name</td>
+                            <td>@item.CheckInDate.ToShortDateString()</td>
+                            <td>@item.CheckOutDate.ToShortDateString()</td>
+                            <td>@item.OrderDate.ToShortDateString()</td>
+                            <td>@item.Hotel.PricePerNight</td>
+                            <td>@item.Hotel.Address</td>
+                            <td>
+                        @if (item.CancellationRequested)
+                        {
+                            @if (item.IsCanceled)
+                            {
+                                                <span class="text-danger">Anulowane</span>
+                            }
+                            else
+                            {
+                                                <span class="text-warning">Anulowanie w trakcie</span>
+                            }
+                        }
+                        else
+                        {
+                                        <span class="text-success">Zatwierdzone</span>
+                        }
+                            </td>
+                            <td>
+                        @if (!item.CancellationRequested)
+                        {
+                                        <form asp-action="RequestCancellation" method="post">
+                                            <input type="hidden" name="orderId" value="@item.Id" />
+                                            <button type="submit" class="btn btn-danger">Anuluj zamówienie</button>
+                                        </form>
+                        }
+                            </td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
