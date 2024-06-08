@@ -26,7 +26,7 @@ else
                                     <strong>Data zamówienia:</strong> @item.OrderDate.ToShortDateString()<br>
                                     <strong>Cena za noc:</strong> @item.Hotel.PricePerNight zł<br>
                                     <strong>Adres:</strong> @item.Hotel.Address<br>
-                                    <strong>Status anulowania:</strong>
+                                    <strong>Status:</strong>
                             @if (item.CancellationRequested)
                             {
                                 @if (item.IsCanceled)
