@@ -6,11 +6,11 @@ Projekt jest aplikacją internetową do rezerwacji hoteli, która umożliwia uż
 
 **Struktura projektu**
 
-Controllers - Zawiera kontrolery obsługujące żądania HTTP
-Models - Zawiera modele danych
-Views - Zawiera widoki (pliki Razor)
-wwwroot - Zawiera statyczne zasoby, takie jak pliki CSS, JS, obrazy
-appsettings.json - Plik konfiguracyjny aplikacji
+-Controllers - Zawiera kontrolery obsługujące żądania HTTP
+-Models - Zawiera modele danych
+-Views - Zawiera widoki (pliki Razor)
+-wwwroot - Zawiera statyczne zasoby, takie jak pliki CSS, JS, obrazy
+-appsettings.json - Plik konfiguracyjny aplikacji
 
 **Użytkowanie**
 
