@@ -4,13 +4,13 @@
 Projekt jest aplikacją internetową do rezerwacji hoteli, która umożliwia użytkownikom przeglądanie dostępnych hoteli, rezerwowanie pokoi, zarządzanie rezerwacjami oraz przeglądanie historii zamówień. Administrator ma możliwość dodawania, edytowania i usuwania hoteli, a także zarządzania zamówieniami użytkowników i rozpatrywania próśb o anulowanie rezerwacji.
 
 
-**Struktura projektu**
+##Struktura projektu
 
--Controllers - Zawiera kontrolery obsługujące żądania HTTP
--Models - Zawiera modele danych
--Views - Zawiera widoki (pliki Razor)
--wwwroot - Zawiera statyczne zasoby, takie jak pliki CSS, JS, obrazy
--appsettings.json - Plik konfiguracyjny aplikacji
+- Controllers - Zawiera kontrolery obsługujące żądania HTTP
+- Models - Zawiera modele danych
+- Views - Zawiera widoki (pliki Razor)
+- wwwroot - Zawiera statyczne zasoby, takie jak pliki CSS, JS, obrazy
+- appsettings.json - Plik konfiguracyjny aplikacji
 
 **Użytkowanie**
 
